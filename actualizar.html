@@ -150,6 +150,7 @@
       document.getElementById("edit-descripcion").value = producto.descripcion.replace(/<br> •/g, " -");
       document.getElementById("edit-detalles").value = producto.detalles;
       editForm.style.display = "block";
+      actualizarBtn.style.display = "block"; // <-- Agrega esta línea
       actualizarBtn.disabled = false;
     }
 
@@ -158,6 +159,10 @@
       if (!selectedId) return;
       if (!confirm("¿Seguro que deseas actualizar este producto?")) return;
 
+      // Formatea la descripción antes de enviar
+      let descripcion = document.getElementById("edit-descripcion").value
+        .replace(/ *- */g, "<br> • ");
+
       const productoActualizado = {
         nombre: document.getElementById("edit-nombre").value,
         nombre2: document.getElementById("edit-nombre2").value,
@@ -165,7 +170,7 @@
         cantidad: document.getElementById("edit-cantidad").value,
         categoria: document.getElementById("edit-categoria").value,
         image: document.getElementById("edit-image").value,
-        descripcion: document.getElementById("edit-descripcion").value,
+        descripcion: descripcion, // Usa la descripción formateada
         detalles: document.getElementById("edit-detalles").value
       };
 
@@ -183,6 +188,7 @@
           productos = productos.map(p => p.id === selectedId ? {id: selectedId, ...productoActualizado} : p);
           renderTable();
           editForm.style.display = "none";
+          actualizarBtn.style.display = "none"; // Oculta el botón después de actualizar
           selectedId = null;
           alert("Producto actualizado correctamente.");
         } else {
