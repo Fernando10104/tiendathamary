@@ -1,0 +1,24 @@
+{}{}{}
+
+File {name: '15.png', lastModified: 1746883035585, lastModifiedDate: Sat May 10 2025 10:17:15 GMT-0300 (hora estándar de Argentina), webkitRelativePath: '', size: 136663, …}
+lastModified
+: 
+1746883035585
+lastModifiedDate
+: 
+Sat May 10 2025 10:17:15 GMT-0300 (hora estándar de Argentina) {}
+name
+: 
+"15.png"
+size
+: 
+136663
+type
+: 
+"image/png"
+webkitRelativePath
+: 
+""
+[[Prototype]]
+: 
+File

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carga de Productos</title>
+  <link rel="stylesheet" href="prueba.css">
+</head>
+<body>
+  
+
+  <h2>Cargar nuevo producto</h2>
+  <form id="product-form">
+    <label>Nombre: <input type="text" id="nombre" required></label>
+    <label>Nombre 2: <input type="text" id="nombre2"></label>
+    <label>Precio: <input type="text" id="precio" required></label>
+    <label>Cantidad: <input type="text" id="cantidad"></label>
+    <label>Categoría: <input type="text" id="categoria"></label>
+    <label>Descripción (separa con "-"): <textarea id="descripcion" rows="4"></textarea></label>
+    <label>Detalles: <textarea id="detalles" rows="3"></textarea></label>
+    <label>Imagen: <input type="file" id="image" accept="image/*"></label>
+
+    <img id="preview" src="#" alt="Vista previa de imagen" style="display:none;">
+    <div style="margin-top: 20px;">
+      <button type="button" id="btn-vista-previa">Vista previa</button>
+      <button type="button" id="btn-enviar">Cargar producto</button>
+    </div>
+  </form>
+
+  <h3>Resultado JSON:</h3>
+  <pre id="output"></pre>
+  <h3>Vista previa del producto:</h3>
+  <hr>
+  <br>
+  <div id="contenedor-principal" class="contenedor-principal"></div>
+
+
+  <!-- Solo reemplaza tu <script> por este para usar /upload-image/ y luego crear el producto -->
+<script src="prueba.js"></script>
+</body>
+</html>

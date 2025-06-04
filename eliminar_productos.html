@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Eliminar Productos</title>
+  <link rel="stylesheet" href="prueba.css">
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px 8px;
+      border-bottom: 1px solid #f5cbc9;
+      text-align: left;
+    }
+    th {
+      background: #f5cbc9;
+      color: #333;
+    }
+    tr.selected {
+      background-color: #ffe0e0;
+    }
+    #delete-btn {
+      margin-top: 20px;
+      background: #e74c3c;
+      color: #fff;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 5px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: none;
+    }
+    #delete-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <h2>Eliminar Productos</h2>
+  <table id="productos-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Nombre 2</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Categoría</th>
+        <th>Descripción</th>
+        <th>Detalles</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Productos se cargarán aquí -->
+    </tbody>
+  </table>
+  <button id="delete-btn" disabled>Eliminar producto seleccionado</button>
+
+  <script>
+    let productos = [];
+    let selectedId = null;
+    const tableBody = document.querySelector("#productos-table tbody");
+    const deleteBtn = document.getElementById("delete-btn");
+
+    // Cargar productos
+    fetch("http://137.131.147.202:8000/productos")
+      .then(res => res.json())
+      .then(data => {
+        productos = data.productos;
+        renderTable();
+      });
+
+    function renderTable() {
+      tableBody.innerHTML = "";
+      productos.forEach(producto => {
+        const tr = document.createElement("tr");
+        tr.dataset.id = producto.id;
+        tr.innerHTML = `
+          <td>${producto.id}</td>
+          <td>${producto.nombre}</td>
+          <td>${producto.nombre2}</td>
+          <td>${producto.precio}</td>
+          <td>${producto.cantidad}</td>
+          <td>${producto.categoria}</td>
+          <td>${producto.descripcion.replace(/<br> •/g, " -")}</td>
+          <td>${producto.detalles}</td>
+        `;
+        tr.addEventListener("click", () => selectRow(tr, producto.id));
+        tableBody.appendChild(tr);
+      });
+    }
+
+    function selectRow(row, id) {
+      // Quitar selección previa
+      document.querySelectorAll("#productos-table tr.selected").forEach(tr => tr.classList.remove("selected"));
+      row.classList.add("selected");
+      selectedId = id;
+      deleteBtn.disabled = false;
+      deleteBtn.style.display = "inline-block";
+    }
+
+    deleteBtn.addEventListener("click", () => {
+      if (!selectedId) return;
+      if (!confirm("¿Seguro que deseas eliminar este producto?")) return;
+      fetch(`http://137.131.147.202:8000/productos/${selectedId}`, {
+        method: "DELETE"
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.ok) {
+          productos = productos.filter(p => p.id !== selectedId);
+          renderTable();
+          selectedId = null;
+          deleteBtn.disabled = true;
+          deleteBtn.style.display = "none";
+          alert("Producto eliminado correctamente.");
+        } else {
+          alert("No se pudo eliminar el producto.");
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thamary Creaciones</title>
+    <link rel="icon" href=".\src\logo\icono.png" type="image/png" sizes="32x32">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
+
+</head>
+
+<!-- #f6d7d5 -->
+
+<body class="body">
+    <div class="contenedor-principal">
+        <section class="section-header">
+            <div class="div-header">
+                <header>
+                    <div class="header-div-2" >
+                        
+                        <div class="buscador-wrapper">
+                            <input 
+                              type="text" 
+                              placeholder="Buscar" 
+                              class="buscador-input" 
+                              id="search"
+                            >
+                            <button class="buscador-btn" onclick="buscar()">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                   stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="M21 21l-4.3-4.3"></path>
+                              </svg>
+                            </button>
+                          </div>
+
+                        <div class="div-logo">
+                            <img class="logo" src="./src/logo/Logocortado.png" alt="">
+                        </div>
+                        
+                        <div class="div-menu-header">
+                            <!-- Botón hamburguesa -->
+                            <button id="menu-toggle" class="menu-toggle">
+                            ☰
+                            </button>
+                            <!-- Menú de navegación -->
+                            <nav id="menu" class="menu">
+                                <ul >
+                                    <li><a  class="btn-link" href="index.html">Inicio</a></li>
+                                    <li><a  class="btn-link" href="productos.html">Productos</a></li>
+                                    <li><a  class="btn-link" href="contacto.html">Contacto</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        
+
+                    </div>
+                </header>
+            </div>
+        </section>
+        <hr style="height: 1px; background-color: #ffeeee; border: none; width: 100%;">
+        <section>
+            <div class="container2">
+                <h2>Bienvenido a Thamary Creaciones</h2>
+                <p>Tu tienda de productos personalizados y únicos.</p>     
+                <p>Explora nuestra variedad de productos y encuentra el regalo perfecto para ti o tus seres queridos.</p>
+                <br>
+
+            </div>
+            <!-- zona carga productos-->
+            <div id="contenedor-productos" class="contenedor-productos">
+                
+            </div>
+
+
+        </section>
+        <a href="https://wa.me/595994791449" target="_blank" id="whatsapp-btn">
+        <img src="https://img.icons8.com/color/48/whatsapp.png" alt="WhatsApp">
+        </a>
+        <footer>
+            <p>© 2025 Thamary Creaciones. Todos los derechos reservados.</p>
+        </footer>
+        
+
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+<script src="./index.js" ></script>
+</html>
