@@ -6,7 +6,7 @@ async function verificarLogin() {
     return;
   }
 
-  const response = await fetch('http://127.0.0.1:8000/verificar-token', {
+  const response = await fetch('https://api.puntodigitalpy.online/verificar-token', {
     headers: {
       "Authorization": `Bearer ${token}`
     }

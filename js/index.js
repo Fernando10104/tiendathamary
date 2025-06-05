@@ -11,7 +11,7 @@ menu.classList.toggle('active');
 });
 
 // Cargar los productos desde el archivo JSON
-fetch("http://137.131.147.202:8000/productos")
+fetch("https://api.puntodigitalpy.online/productos")
     .then(response => response.json())
     .then(data => {
         const productos = data.productos;

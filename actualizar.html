@@ -141,7 +141,7 @@
     const actualizarBtn = document.getElementById("actualizar-btn");
 
     // Cargar productos
-    fetch("http://137.131.147.202:8000/productos")
+    fetch("https://api.puntodigitalpy.online/productos")
       .then(res => res.json())
       .then(data => {
         productos = Array.isArray(data) ? data : data.productos;
@@ -208,7 +208,7 @@
         detalles: document.getElementById("edit-detalles").value
       };
 
-      fetch(`http://137.131.147.202:8000/productos/${selectedId}`, {
+      fetch(`https://api.puntodigitalpy.online/productos/${selectedId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"

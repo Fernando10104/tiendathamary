@@ -48,7 +48,7 @@ function actulizarproductos() {
 }
 
 // Cargar los datos del JSON
-fetch("http://137.131.147.202:8000/productos")
+fetch("https://api.puntodigitalpy.online/productos")
   .then(response => response.json())
   .then(data => {
     productos = data.productos;

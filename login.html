@@ -91,7 +91,7 @@
       const password = document.getElementById("password").value;
 
       try {
-        const loginResponse = await fetch("http://127.0.0.1:8000/login", {
+        const loginResponse = await fetch("https://api.puntodigitalpy.online/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",

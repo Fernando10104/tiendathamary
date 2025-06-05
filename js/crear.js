@@ -65,7 +65,7 @@ async function handleFormSubmit(e) {
     formData.append("descripcion", Descripcion);
     formData.append("detalles", detalles);
 
-    const res = await fetch('http://137.131.147.202:8000/upload-image', {
+    const res = await fetch('https://api.puntodigitalpy.online/upload-image', {
       method: 'POST',
       body: formData
     });

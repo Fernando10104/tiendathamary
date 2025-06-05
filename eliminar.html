@@ -105,7 +105,7 @@
     const deleteBtn = document.getElementById("delete-btn");
 
     // Cargar productos
-    fetch("http://137.131.147.202:8000/productos")
+    fetch("https://api.puntodigitalpy.online/productos")
       .then(res => res.json())
       .then(data => {
         productos = data.productos;
@@ -144,7 +144,7 @@
     deleteBtn.addEventListener("click", () => {
       if (!selectedId) return;
       if (!confirm("¿Seguro que deseas eliminar este producto?")) return;
-      fetch(`http://137.131.147.202:8000/productos/${selectedId}`, {
+      fetch(`https://api.puntodigitalpy.online/productos/${selectedId}`, {
         method: "DELETE"
       })
       .then(res => res.json())
