@@ -75,7 +75,7 @@ function cargarproductos(productos){
             searchInput.blur();
             cargarproductos(productos);
             
-            window.location.href = `producto-detallado.html?id=${item.id}`;
+            window.location.href = `p_detallado.html?id=${item.id}`;
             
         };
         contenedorproductos.appendChild(div);

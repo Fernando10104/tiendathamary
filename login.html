@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #f5cbc9 0%, #ffe0e0 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+    }
+    .login-container {
+      background: #fff;
+      padding: 2.5rem 2rem 2rem 2rem;
+      border-radius: 18px;
+      box-shadow: 0 6px 24px rgba(245, 203, 201, 0.3), 0 1.5px 4px rgba(0,0,0,0.07);
+      min-width: 320px;
+      max-width: 350px;
+      width: 100%;
+    }
+    .login-container h1 {
+      color: #e57373;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .login-container label {
+      color: #c2185b;
+      font-weight: 500;
+      display: block;
+      margin-bottom: 0.3rem;
+      margin-top: 1rem;
+    }
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1.5px solid #f5cbc9;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      background: #fff6f6;
+      transition: border 0.2s;
+    }
+    .login-container input:focus {
+      border-color: #e57373;
+      outline: none;
+    }
+    .login-container button[type="submit"] {
+      width: 100%;
+      background: #e57373;
+      color: #fff;
+      border: none;
+      padding: 0.9rem 0;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-top: 1.2rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      box-shadow: 0 2px 8px rgba(229, 115, 115, 0.08);
+    }
+    .login-container button[type="submit"]:hover {
+      background: #c2185b;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Iniciar Sesión</h1>
+    <form id="loginForm">
+      <label for="username">Usuario:</label>
+      <input type="text" id="username" required />
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" required />
+      <button type="submit">Ingresar</button>
+    </form>
+  </div>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", async function (e) {
+      e.preventDefault(); // Previene que el formulario recargue la página
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      try {
+        const loginResponse = await fetch("http://127.0.0.1:8000/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams({
+            username: username,
+            password: password,
+          }),
+        });
+
+        if (!loginResponse.ok) {
+          alert("Login fallido: usuario o contraseña incorrectos");
+          return;
+        }
+
+        const data = await loginResponse.json();
+        localStorage.setItem("token", data.access_token); // Guardamos el token
+
+        alert("Login exitoso. Redirigiendo a la página de carga de productos...");
+        window.location.href = "crear.html"; // Redirige a la página protegida
+
+      } catch (error) {
+        console.error("Error:", error);
+        alert("Ocurrió un error durante el login");
+      }
+    });
+  </script>
+</body>
+</html>

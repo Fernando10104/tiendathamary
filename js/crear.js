@@ -1,3 +1,13 @@
+const toggleButton = document.getElementById('menu-toggle');
+const menu = document.getElementById('menu');
+
+toggleButton.addEventListener('click', () => {
+menu.classList.toggle('active');
+});
+
+
+
+
 const form = document.getElementById('product-form');
 const output = document.getElementById('output');
 const imageInput = document.getElementById('image');

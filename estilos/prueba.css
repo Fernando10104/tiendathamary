@@ -1,3 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat','Segoe UI', sans-serif;
+}
+
+.div-header{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.header-div-2{
+  display: flex; 
+  justify-content: space-around; 
+  flex-direction: column;
+  align-items: center; 
+  gap: 40px;
+}
+/* Menú de navegación */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #fcb1b1;
+}
+.btn-link {
+  border-radius: .5rem;
+  border: #f5cbc9 10px solid;
+  background-color: #f5cbc9;
+  box-shadow: #fcb1b1 0px 0px 10px;
+  gap: .5rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+/*prueba de menu raro*/
+.menu-toggle {
+  display: none;
+  background-color: #fcb1b1;
+  color: #333;
+  font-size: 22px;
+  padding: 8.5px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+
+
+@media screen and (max-width: 720px) {
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 4px;
+  }
+
+  nav.menu {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    background-color: #f6d7d5;
+    padding: 10px 0;
+    margin-top: 3.3rem;
+    box-shadow: #fcb1b1 0px 4px 8px;
+    border-radius: 0 0 12px 12px;
+  }
+  .nav.menu ul li:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+  }
+
+  nav.menu.active {
+    display: flex;
+  }
+
+  nav.menu ul {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  nav.menu ul li a {
+    font-size: 16px;
+  }
+}
+
+.producto:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 body {
   font-family: 'Segoe UI', 'Montserrat', sans-serif;
   background: #f6d7d5;
@@ -198,9 +322,3 @@ footer {
   margin-right: 60px;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Montserrat','Segoe UI', sans-serif;
-}

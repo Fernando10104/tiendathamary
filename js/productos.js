@@ -106,7 +106,7 @@ function cargarproductos(productosParaCargar, resetIndice = false) {
       const searchInput = document.getElementById("search");
       searchInput.value = "";
       searchInput.blur();
-      window.location.href = `producto-detallado.html?id=${item.id}`;
+      window.location.href = `p_detallado.html?id=${item.id}`;
     };
     contenedorproductos.appendChild(div);
   });

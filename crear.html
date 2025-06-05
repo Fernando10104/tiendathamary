@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carga de Productos</title>
+  <link rel="stylesheet" href="./estilos/prueba.css">
+  <script src="/js/verificar_login.js" defer></script>
+  <script src="/js/logout.js" defer></script>
+
+</head>
+<body>
+  
+
+                  <header>
+                    <button onclick="logout()">Cerrar sesión</button>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="header-div-2" >
+   
+                       <div class="div-menu-header">
+                            <!-- Botón hamburguesa -->
+                            <button id="menu-toggle" class="menu-toggle">
+                            ☰
+                            </button>
+                            <!-- Menú de navegación -->
+                            <nav id="menu" class="menu">
+                                <ul >
+                                    <li><a  class="btn-link" href="crear.html">crear</a></li>
+                                    <li><a  class="btn-link" href="actualizar.html">actualizar</a></li>
+                                    <li><a  class="btn-link" href="eliminar.html">eliminar</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        
+                        
+
+                    </div>
+                </header>
+
+  <div> 
+    <br> 
+    <br>
+  </div>
+
+  <h2 style="font-size:2.8rem ;">Cargar nuevo producto</h2>
+  <form id="product-form">
+    <label>Nombre: <input type="text" id="nombre" required></label>
+    <label>Nombre 2: <input type="text" id="nombre2"></label>
+    <label>Precio: <input type="text" id="precio" required></label>
+    <label>Cantidad: <input type="text" id="cantidad"></label>
+    <label>Categoría: <input type="text" id="categoria"></label>
+    <label>Descripción (separa con "-"): <textarea id="descripcion" rows="4"></textarea></label>
+    <label>Detalles: <textarea id="detalles" rows="3"></textarea></label>
+    <label>Imagen: <input type="file" id="image" accept="image/*"></label>
+
+    <img id="preview" src="#" alt="Vista previa de imagen" style="display:none;">
+    <div style="margin-top: 20px;">
+      <button type="button" id="btn-vista-previa">Vista previa</button>
+      <button type="button" id="btn-enviar">Cargar producto</button>
+    </div>
+  </form>
+
+  <h3>Resultado JSON:</h3>
+  <pre id="output"></pre>
+  <h3>Vista previa del producto:</h3>
+  <hr>
+  <br>
+  <div id="contenedor-principal" class="contenedor-principal"></div>
+
+
+  <!-- Solo reemplaza tu <script> por este para usar /upload-image/ y luego crear el producto -->
+<script src="./js/crear.js"></script>
+</body>
+</html>
