@@ -57,7 +57,11 @@ function mostrarProducto(productos,id){
                         <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp" class="icono-whatsapp">
                         Hacer el pedido
                         </a>
-
+                        <!-- Botón de agregar al carrito -->
+                        <button class="btn-agregar" id="btn-agregar-carrito">
+                        <img src="https://img.icons8.com/ios-filled/20/000000/add-shopping-cart.png" style="margin-right:6px;vertical-align:middle;">
+                        Agregar al carrito
+                        </button>
                     </div>
                     </div>
                         <hr style="height: 1px; background-color: #ffeeee; border: none; width: 100%;">
@@ -73,5 +77,25 @@ function mostrarProducto(productos,id){
                     </footer>`
                     ;
                     contenedor_detalles.appendChild(div);
+
+    // Funcionalidad para agregar al carrito
+    const btnAgregar = document.getElementById("btn-agregar-carrito");
+    btnAgregar.addEventListener("click", function() {
+        const productoCarrito = {
+            id: producto.id,
+            nombre: producto.nombre,
+            nombre2: producto.nombre2,
+            precio: producto.precio,
+            image: producto.image,
+            cantidad: 1
+        };
+        if (typeof agregarAlCarrito === "function") {
+            agregarAlCarrito(productoCarrito);
+            btnAgregar.textContent = "¡Agregado!";
+            setTimeout(() => { btnAgregar.textContent = "Agregar al carrito"; }, 1200);
+        } else {
+            alert("No se pudo agregar al carrito. Recarga la página.");
+        }
+    });
  }
 

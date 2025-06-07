@@ -8,9 +8,52 @@
     <link rel="stylesheet" href="./estilos/estilos-producto.css">
     <link rel="icon" href=".\src\logo\icono.png" type="image/png" sizes="32x32">
 
+
 </head>
 <body class="body">
     <div class="contenedor-principal">
+         <div class="carrito" id="carrito">
+            <h3>Carrito de compra</h3>
+            <button class="btn-cerrar-carrito" id="btn-cerrar-carrito" onclick="cerracarrito()">
+                <img src="./src/logo/x.svg" alt="" width="20" height="20" >
+                
+            </button>
+            <div class="contenedor-carrito">
+                
+               <div class="header-carrito">
+                    <p>PRODUCTO</p>     <p>SUBTOTAL</p>  
+                    
+                </div> 
+                <div class="productos-carrito" id="productos-carrito">
+                    <!-- <p>generamos los productos aqui izquierda producto img - 
+                        nombre - boton de cantidad.  derecha precio </p> -->
+                    
+
+                </div>
+
+            </div>
+            
+            <div style="text-align: center; margin-top: 1rem;">
+                <a href="https://wa.me/595994791449?text=Hola%2C%20quiero%20hacer%20un%20pedido%20desde%20la%20tienda%20online." 
+                   target="_blank" 
+                   class="btn-whatsapp-pedido"
+                   style="display: inline-block; background-color: #25D366; color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: 600; font-size: 1rem;">
+                    <img src="https://img.icons8.com/color/24/whatsapp.png" alt="WhatsApp" style="vertical-align: middle; margin-right: 8px;">
+                    Hacer pedido por WhatsApp
+                </a>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
         <section class="section-header">
             <div class="div-header">
                 <header>
@@ -21,6 +64,11 @@
 
                         
                        <div class="div-menu-header">
+                             <!-- Botón de carrito -->
+                             <button class="btn-carrito" id="btn-abrir-carrito" onclick="abrircarrito()">
+                                <img src="./src/logo/cart.svg" alt="" width="18" height="16">   
+                                Carrito (<span id="carrito-cantidad">0</span>)
+                            </button>
                             <!-- Botón hamburguesa -->
                             <button id="menu-toggle" class="menu-toggle">
                             ☰
@@ -55,6 +103,7 @@
     </div>
     
     <script src="./js/detalles.js" ></script>
+    <script src="/js/carrito.js"></script>
 </body>
 
 </html>

@@ -101,6 +101,7 @@ function cargarproductos(productosParaCargar, resetIndice = false) {
         <h3 class="producto-nombre">${item.nombre}</h3>
         <p>Tipo : ${item.nombre2}</p>
         <p>Precio: ${precioFormateado} Gs.</p>
+        <button class="btn-agregar"  onclick='handleButtonClick(event); agregarAlCarrito(${JSON.stringify(item)})' >Agregar al carrito</button>
       </div>
     `;
     div.onclick = () => {
@@ -124,6 +125,12 @@ boton.addEventListener("click", () => {
   cargarproductos(resultadoFinal);
   console.log("boton precionado") // sin reset
 })
+function handleButtonClick(event) {
+  event.stopPropagation(); // 🔴 Esto evita que el clic llegue al div
+  
+}
+
+
   
     
     

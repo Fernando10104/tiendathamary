@@ -112,7 +112,107 @@ footer {
   max-width: 1200px;
   margin: 0 auto;
   
+} 
+/*zona carrito de compra*/
+.carrito {
+  display: none;
+      position: fixed;
+      top: 0;
+      right: 0px; /* Oculto fuera de pantalla -400 */
+      width: 500px;
+      height: 100%;
+      background-color: #fbeaea;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+      transition: right 0.3s ease;
+      z-index: 1001;
+      padding: 20px;
 }
+.carrito.activo {
+  display: block;
+}
+.btn-cerrar-carrito {
+  position: absolute;
+  top: 12px;
+  right: 8px;
+  background-color: #f5cbc9;
+  border: #f5cbc9 2px solid;
+  box-shadow: #fcb1b1 0px 0px 2px;
+  color: #333;
+  font-size: 6px;
+  padding: 1px 4px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+.contenedor-carrito {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start;
+  height: auto;
+  padding: 20px;
+}
+.header-carrito{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+.productos-carrito{
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+.producto-carrito-info{
+  display: flex;
+  justify-content: flex-start;
+  align-items: normal;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #fbeaea;
+  border-radius: 8px;
+}
+.producto-carrito-destalles{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin-left: 10px;
+}
+.cantidad-producto{
+  margin-left: 1rem;
+  display: flex;
+  gap: 5px;
+  justify-content: flex-start;
+  align-items: center;
+}
+.btn-cantidad {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5cbc9;
+  border: #f5cbc9 4px solid;
+  box-shadow: #fcb1b1 0px 0px 3px;
+  color: #333;
+  font-size: 14px;
+  padding: 1px 4px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.total-carrito {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
 
 /* Estilo para el header */
 .section-header {
@@ -130,6 +230,33 @@ footer {
   justify-content: space-around; 
   align-items: center; 
   gap: 40px;
+}
+
+.div-menu-header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+  gap: 0rem ;
+}
+.btn-carrito{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5cbc9;
+  border: #f5cbc9 3px solid;
+  box-shadow: #fcb1b1 0px 0px 2px;
+  color: #333;
+  font-size: 16px;
+  padding: 3.5px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  top: 5px;
+  right: 0px;
+  position: absolute;
 }
 
 /* Estilo para la barra de búsqueda */
@@ -338,7 +465,7 @@ nav ul li a:hover {
 .producto-info {
     margin: 0;
     width: 100%;
-    height: 20%;
+    height: 22%;
     position: relative;
     display: flex;
     gap: .5rem;
@@ -361,6 +488,21 @@ nav ul li a:hover {
 
   cursor: pointer;
   
+}
+
+.btn-agregar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5cbc9;
+    border: #f5cbc9 1px solid;
+    box-shadow: #fcb1b1 0px 0px 1px;
+    color: #333;
+    font-size: 14px;
+    padding: 1px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 }
 @media screen and (max-width: 1130px) {
   
@@ -611,7 +753,9 @@ nav ul li a:hover {
 
 .menu-toggle {
   display: none;
-  background-color: #fcb1b1;
+  background-color:#f5cbc9;
+  border: #f5cbc9 3px solid;
+  box-shadow: #fcb1b1 0px 0px 2px;
   color: #333;
   font-size: 22px;
   padding: 8.5px 12px;
@@ -622,11 +766,23 @@ nav ul li a:hover {
 }
 /*nuevos estilos para mobile y hover*/
 @media screen and (max-width: 720px) {
+  .carrito{
+    width: 100%;
+    /* Oculto fuera de pantalla */
+  }
+
+  .btn-carrito {
+    top: 8px;
+    right: 29px;
+
+ } 
+
   .menu-toggle {
     display: block;
     position: absolute;
-    top: 15px;
+    top: 2px;
     right: -22px;
+    z-index: 1000;
   }
 
   nav.menu {
