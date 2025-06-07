@@ -59,9 +59,8 @@ body {
 }
 select{
     background-color: #f6d7d5;
-    font-size: 16px;
-    height: 35px;
-    size: 18px;
+    font-size: 15px;
+    height: 28px;
     width: auto;
     color: #333;
     border: #fcb1b1 2px solid;
@@ -83,6 +82,7 @@ option{
     color: #333;
     border: #fcb1b1 2px solid;
     box-shadow: #fcb1b1 0px 0px 10px;
+    margin-top: 0.2rem;
 }
 .ordenarprecio option{
   background-color: #f6d7d5;
@@ -90,8 +90,8 @@ option{
   font-size: 12px;
 }
 .ordenarprecio label{
-  font-size: 21px;
-  margin-left: 29px;
+  font-size: 25px;
+  margin-left: -80px;
 }
 
 footer {
@@ -206,21 +206,51 @@ nav ul li a:hover {
 /* Estilo para el contenido secundario */
 
 .container2 {
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  margin-top: 2rem;
+}
+.hijo_container2 {
   display: flex;
   align-items: center;
-  flex-direction: column;
-  margin-top: 20px;
+  justify-content: space-around;
+  flex-direction: row;
   font-size: 32px;
+  margin-top: 11px;
 }
 .container2 h1 {
-  font-size: 32px;
-  margin-bottom: 20px;
+  order: 1;
+  font-size: 36px;
+  margin-bottom: 0px;
 }
 .container2 p {
   font-size: 24px;
   color: #555;
   margin-top: 10px;
 }
+
+.filtros-categoria{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  order: 2;
+}
+.filtros-categoria select {
+  margin-top: 0.5rem;
+}
+
+.ordenarprecio {
+    display: flex;
+    order: 3;
+    font-size: 32px;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+
 
 /* buscador*/
 .buscador-wrapper {
@@ -305,19 +335,19 @@ nav ul li a:hover {
   
 }
 .producto-info {
-  margin: 0;
-  width: 100%;
-  height: 20%;
-  position: relative;
-  display: flex;
-  gap: .5rem;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-color: #f5cbc1;
-  border-radius: 1rem;
-  margin-top: -1.5rem;
+    margin: 0;
+    width: 100%;
+    height: 20%;
+    position: relative;
+    display: flex;
+    gap: .5rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #fbeaea;
+    border-radius: 1rem;
+    margin-top: 1rem;
 }
 
 .btn-primary {
@@ -357,6 +387,67 @@ nav ul li a:hover {
 
 
 @media screen and (max-width: 720px) {
+  .ordenarprecio select{
+  background-color: #f6d7d5;
+    font-size: 10px;
+    height: 28px;
+    size: 12px;
+    width: auto;
+    color: #333;
+    border: #fcb1b1 2px solid;
+    box-shadow: #fcb1b1 0px 0px 10px;
+  }
+  .ordenarprecio option{
+    background-color: #f6d7d5;
+    color: #333;
+    font-size: 12px;
+  }
+  .ordenarprecio label{
+    font-size: 21px;
+    margin-left: 29px;
+  }
+
+
+  /* Estilo para el contenido secundario */
+
+  .container2 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    font-size: 32px;
+  }
+  .container2 h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  .container2 p {
+    font-size: 24px;
+    color: #555;
+    margin-top: 10px;
+  }
+
+    /* Elimina flex en .hijo_container2 si no lo querés */
+  .hijo_container2 {
+    display: block;
+    margin-top: 0;
+    font-size: inherit;
+  }
+
+  .ordenarprecio,
+  .filtros-categoria {
+    display: block;
+    font-size: inherit;
+    gap: 0;
+    justify-content: start;
+    align-items: start;
+  }
+
+  .filtros-categoria select,
+  .ordenarprecio select {
+    margin-top: 0;
+  }
+
   
   .contenedor-principal {
     max-width: 100%;
@@ -440,7 +531,8 @@ nav ul li a:hover {
     justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
-    margin-top: .8rem;
+    margin-top: 1.8rem;
+    gap:10px;
   }
   .ordenarprecio label {
     font-size: 19px;
