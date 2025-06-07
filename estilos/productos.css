@@ -211,6 +211,7 @@ nav ul li a:hover {
   padding: 0;
   width: 100%;
   margin-top: 2rem;
+  margin-bottom: 1.5rem;
 }
 .hijo_container2 {
   display: flex;
