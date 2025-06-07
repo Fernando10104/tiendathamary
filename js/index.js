@@ -57,6 +57,7 @@ const contenedorproductos = document.querySelector("#contenedor-productos");
 function cargarproductos(productos){
     contenedorproductos.innerHTML = ""; // limpiar lo anterior
     productos.forEach( item  => {
+        const precioFormateado = item.precio.toLocaleString('de-DE');
         const div = document.createElement("div");
         div.classList.add("producto");
         div.innerHTML = `
@@ -65,7 +66,7 @@ function cargarproductos(productos){
             <div class="producto-info">
                 <h3 class="producto-nombre">${item.nombre}</h3>
                 <p>Tipo : ${item.nombre2}</p>
-                <p>Precio: ${item.precio} Gs.</p>
+                <p>Precio: ${precioFormateado} Gs.</p>
                 
             </div>
         `;

@@ -32,6 +32,7 @@ function mostrarProducto(productos,id){
     console.log(productos,"productos del mostrar");
     const producto = productos.find(producto => producto.id === idInt);
     console.log(producto, "producto encontrado");
+    const precioFormateado = item.precio.toLocaleString('de-DE');
     const div = document.createElement("div");
     div.classList.add("contenedor-productos");
     div.innerHTML =`
@@ -50,7 +51,7 @@ function mostrarProducto(productos,id){
                         ${producto.descripcion}
                         </p>
                         <hr style="height: 3px; background-color: #f5cbc9; border: none; width: 350px; margin: 5px 0;">
-                        <p class="precio-detalles">Precio: ${producto.precio} Gs</p>
+                        <p class="precio-detalles">Precio: ${precioFormateado} Gs</p>
                         <!-- Botón de WhatsApp -->
                         <a href="https://wa.me/595994791449?text=Hola quiero hacer un pedido de: ${producto.nombre}, el ${producto.nombre2}. Precio: ${producto.precio} gs  " target="_blank" class="boton-whatsapp">
                         <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp" class="icono-whatsapp">

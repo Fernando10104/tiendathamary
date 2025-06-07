@@ -92,6 +92,7 @@ function cargarproductos(productosParaCargar, resetIndice = false) {
   const nuevosProductos = productosParaCargar.slice(indiceInicio, indiceInicio + cantidadPorCarga);
   console.log(nuevosProductos,"nuevos productos")
   nuevosProductos.map(item => {
+    const precioFormateado = item.precio.toLocaleString('de-DE');
     const div = document.createElement("div");
     div.classList.add("producto");
     div.innerHTML = `
@@ -99,7 +100,7 @@ function cargarproductos(productosParaCargar, resetIndice = false) {
       <div class="producto-info">
         <h3 class="producto-nombre">${item.nombre}</h3>
         <p>Tipo : ${item.nombre2}</p>
-        <p>Precio: ${item.precio} Gs.</p>
+        <p>Precio: ${precioFormateado} Gs.</p>
       </div>
     `;
     div.onclick = () => {
