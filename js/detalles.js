@@ -32,7 +32,7 @@ function mostrarProducto(productos,id){
     console.log(productos,"productos del mostrar");
     const producto = productos.find(producto => producto.id === idInt);
     console.log(producto, "producto encontrado");
-    const precioFormateado = item.precio.toLocaleString('de-DE');
+    const precioFormateado = producto.precio.toLocaleString('de-DE');
     const div = document.createElement("div");
     div.classList.add("contenedor-productos");
     div.innerHTML =`
