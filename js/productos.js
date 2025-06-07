@@ -1,4 +1,3 @@
-
 const opciones = {
   keys: ['nombre', 'categoria'],
   threshold: 0.37
@@ -101,14 +100,23 @@ function cargarproductos(productosParaCargar, resetIndice = false) {
         <h3 class="producto-nombre">${item.nombre}</h3>
         <p>Tipo : ${item.nombre2}</p>
         <p>Precio: ${precioFormateado} Gs.</p>
-        <button class="btn-agregar"  onclick='handleButtonClick(event); agregarAlCarrito(${JSON.stringify(item)})' >Agregar al carrito</button>
+        <button class="btn-agregar">Agregar al carrito</button>
       </div>
     `;
+    // Evita que el click en el div navegue si se hace click en el botón
     div.onclick = () => {
       const searchInput = document.getElementById("search");
       searchInput.value = "";
       searchInput.blur();
       window.location.href = `p_detallado.html?id=${item.id}`;
+    };
+    // Botón agregar al carrito con feedback visual
+    const btnAgregar = div.querySelector('.btn-agregar');
+    btnAgregar.onclick = function(event) {
+      event.stopPropagation();
+      agregarAlCarrito(item);
+      btnAgregar.textContent = "¡Agregado!";
+      setTimeout(() => { btnAgregar.textContent = "Agregar al carrito"; }, 1200);
     };
     contenedorproductos.appendChild(div);
   });
@@ -131,7 +139,7 @@ function handleButtonClick(event) {
 }
 
 
-  
-    
-    
+
+
+
 
