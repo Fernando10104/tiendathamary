@@ -478,17 +478,6 @@ nav ul li a:hover {
     margin-top: 1rem;
 }
 
-.btn-primary {
-  font-family: 'Montserrat','Segoe UI', sans-serif;
-  font-size: 20px;
-  background-color: #fcb1b1;
-  color: black;
-  border: #fcb1b1 5px solid;
-  border-radius: 16px;
-
-  cursor: pointer;
-  
-}
 
 .btn-agregar{
     display: flex;
@@ -504,6 +493,20 @@ nav ul li a:hover {
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
 }
+
+
+.btn-primary {
+  font-family: 'Montserrat','Segoe UI', sans-serif;
+  font-size: 20px;
+  background-color: #fcb1b1;
+  color: black;
+  border: #fcb1b1 5px solid;
+  border-radius: 16px;
+
+  cursor: pointer;
+  
+}
+
 @media screen and (max-width: 1130px) {
   
   .header-div-2{
@@ -691,7 +694,7 @@ nav ul li a:hover {
     padding: 2px;
   }
   .producto {
-    height: 260px;
+    height: 300px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -705,7 +708,7 @@ nav ul li a:hover {
   }
   .producto-imagen {
     width: 100%;
-    height: 65%;
+    height: 60%;
     border-radius: 8px;
     border-bottom: 0px;
     border-bottom-left-radius: 0px;
@@ -716,21 +719,12 @@ nav ul li a:hover {
   }
   .producto-info {
     margin: 0;
-    width: 100%;
+    width: 95%;
     height: 30%;
     position: relative;
     display: flex;
     gap: .2rem;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: #f5cbc1;
-    border-radius: 1rem;
-    border: #f5cbc1 10px solid;
-    margin-top: -.1rem;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
+    margin-top: .5rem;
   }
   .producto-info h3 {
     font-size: 12px;
@@ -739,6 +733,20 @@ nav ul li a:hover {
     font-size: 12px;
     color: #555;
   }
+  .btn-agregar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5cbc9;
+    border: #f5cbc9 1px solid;
+    box-shadow: #fcb1b1 0px 0px 1px;
+    color: #333;
+    font-size: 12px;
+    padding: 1px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
 
   .btn-primary {
     font-family: 'Montserrat','Segoe UI', sans-serif;
