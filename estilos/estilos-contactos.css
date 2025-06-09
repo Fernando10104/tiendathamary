@@ -291,7 +291,9 @@ nav ul li a:hover {
 /*prueba de menu raro*/
 .menu-toggle {
   display: none;
-  background-color: #fcb1b1;
+  background-color:#f5cbc9;
+  border: #f5cbc9 3px solid;
+  box-shadow: #fcb1b1 0px 0px 2px;
   color: #333;
   font-size: 22px;
   padding: 8.5px 12px;
@@ -305,8 +307,9 @@ nav ul li a:hover {
   .menu-toggle {
     display: block;
     position: absolute;
-    top: 15px;
-    right: 4px;
+    top: 2px;
+    right: -22px;
+    z-index: 1000;
   }
 
   nav.menu {
