@@ -137,7 +137,7 @@ function mostrarVistaPrevia(producto) {
     <hr style="height: 1px; background-color: #ffeeee; border: none; width: 100%;">
     <div class="descripcion-producto">
       <h1>Detalles:</h1>
-      <p>${producto.detalles}</p>
+      <p>${producto.detalles.replace(/\n/g, "<br>")}</p>
     </div>
     <footer>
       <p>© 2025 Thamary Creaciones. Todos los derechos reservados.</p>
