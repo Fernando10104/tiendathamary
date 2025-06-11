@@ -67,7 +67,7 @@ function mostrarProducto(productos,id){
                         <hr style="height: 1px; background-color: #ffeeee; border: none; width: 100%;">
                         <div class="descripcion-producto">
                                 <h1>Detalles:</h1>
-                                <p>${producto.detalles.replace(/\n/g, "<br>")}</p>
+                                <p>${producto.detalles.split("\n").join("<br>")}</p>
                     
 
                     </div> 
