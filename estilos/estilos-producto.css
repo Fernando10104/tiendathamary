@@ -1,4 +1,18 @@
 /* Estilo para ₲ el contenedor de la página #f6d7d5  #fcb1b1  #f5cbc9 */
+.pre-detalles-producto{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f6d7d5;
+  border: none;
+}
+
+
+
+
 .boton-whatsapp {
   display: inline-flex;
   width: 200px;

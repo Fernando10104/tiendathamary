@@ -5,6 +5,17 @@
   font-family: 'Montserrat','Segoe UI', sans-serif;
 }
 
+.pre-detalles-producto{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #f6d7d5;
+  border: none;
+}
+
 .div-header{
   display: flex;
   position: relative;
