@@ -166,7 +166,7 @@ function renderTable() {
       <td class="editable" data-field="categoria">${producto.categoria}</td>
       <td class="editable" data-field="image">${producto.image}</td>
       <td class="editable" data-field="descripcion">${producto.descripcion.replace(/<br> •/g, " -")}</td>
-      <td class="editable" data-field="detalles"><textarea rows="6" style="width:100%;">${producto.detalles}</textarea></td>
+      <td class="editable" data-field="detalles" style="white-space:pre-line;">${producto.detalles}</td>
       <td><button class="btn-actualizar" style="display:none;">Actualizar</button></td>
     `;
 
