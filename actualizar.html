@@ -216,7 +216,7 @@ function renderTable() {
         categoria: campos[4].textContent,
         image: campos[5].textContent,
         descripcion: campos[6].textContent.replace(/ *- */g, "<br> •"),
-        detalles: campos[7].textContent
+        detalles: campos[7].textContent.replace(/\n/g, "<br>"),
       };
 
       fetch(`https://api.puntodigitalpy.online/productos/${id}`, {
