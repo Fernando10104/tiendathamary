@@ -4,13 +4,16 @@ function abrircarrito() {
     document.addEventListener('mousedown', handleOutsideClick);
 }
 
+
 function cerracarrito() {
     document.getElementById("carrito").classList.remove("activo");
     document.removeEventListener('mousedown', handleOutsideClick);
 }
 
+
 // Función para agregar un producto al carrito
 // Detecta clics fuera del carrito para cerrarlo
+
 function handleOutsideClick(event) {
     const carrito = document.getElementById("carrito");
     if (carrito && !carrito.contains(event.target)) {
@@ -156,6 +159,22 @@ function vaciarCarrito() {
     actualizarEnlaceWhatsApp();
 }
 
+// Guarda el carrito en el localStorage
+function guardarCarrito(carrito) {
+  localStorage.setItem('carrito', JSON.stringify(carrito));
+}
+
+// Obtiene el carrito del localStorage
+function obtenerCarrito() {
+  const data = localStorage.getItem('carrito');
+  return data ? JSON.parse(data) : [];
+}
+
+let carrito = obtenerCarrito();
+
+// Cuando agregues o elimines productos:
+guardarCarrito(carrito);
+
 // Exporta las funciones globalmente
 window.abrircarrito = abrircarrito;
 window.cerracarrito = cerracarrito;
@@ -163,6 +182,7 @@ window.agregarAlCarrito = agregarAlCarrito;
 window.cambiarCantidad = cambiarCantidad;
 window.mostrarCarrito = mostrarCarrito;
 window.actualizarCantidadCarrito = actualizarCantidadCarrito;
+
 // Exporta la función globalmente
 window.vaciarCarrito = vaciarCarrito;
 
