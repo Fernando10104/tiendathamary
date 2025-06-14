@@ -1,6 +1,8 @@
+mostrarCarrito();
 
 function abrircarrito() {
     document.getElementById("carrito").classList.add("activo");
+    
     document.addEventListener('mousedown', handleOutsideClick);
 }
 
