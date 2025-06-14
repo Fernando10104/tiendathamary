@@ -1,6 +1,6 @@
+
 function abrircarrito() {
     document.getElementById("carrito").classList.add("activo");
-    mostrarCarrito();
     document.addEventListener('mousedown', handleOutsideClick);
 }
 
@@ -158,22 +158,6 @@ function vaciarCarrito() {
     actualizarCantidadCarrito();
     actualizarEnlaceWhatsApp();
 }
-
-// Guarda el carrito en el localStorage
-function guardarCarrito(carrito) {
-  localStorage.setItem('carrito', JSON.stringify(carrito));
-}
-
-// Obtiene el carrito del localStorage
-function obtenerCarrito() {
-  const data = localStorage.getItem('carrito');
-  return data ? JSON.parse(data) : [];
-}
-
-let carrito = obtenerCarrito();
-
-// Cuando agregues o elimines productos:
-guardarCarrito(carrito);
 
 // Exporta las funciones globalmente
 window.abrircarrito = abrircarrito;
