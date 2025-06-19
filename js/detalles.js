@@ -71,7 +71,8 @@ function mostrarProducto(productos,id){
                     
 
                     </div> 
-                    
+                        
+                <br><br><br>
                         <!-- Footer -->
                         <footer class="footer1">
                             <div class="div1">
