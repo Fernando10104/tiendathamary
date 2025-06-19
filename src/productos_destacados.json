@@ -1,0 +1,83 @@
+{
+    "productos": [
+      {
+        "id": 1,
+        "nombre": "CENTRO DE MESA",
+        "nombre2": "ECONÓMICO",
+        "precio": "8500",
+        "cantidad": "1 unidad",
+        "categoria": "CENTRO-DE-MESA",
+        "image": "./src/image/1.png",
+        "descripcion": "Hermosos centros de mesa con decoración temática",
+        "detalles": " NO INCLUYE GOLOSINAS DENTRO, LA TEMÁTICA ES A ELECCIÓN, SE MUESTRAN LOS DISEÑOS ANTESDE LA IMPRESIÓN DEL MISMO"
+      },
+      {
+      "id": 2,
+      "nombre": "CENTRO DE MESA",
+      "nombre2": "ECONÓMICO",
+      "precio": "10000 ",
+      "cantidad": "1 unidad",
+      "categoria": "CENTRO-DE-MESA",
+      "image": "./src/image/2.jpg",
+      "descripcion": "Centro de mesa con encanto artesanal",
+      "detalles": " NO INCLUYE GOLOSINAS DENTRO, LA TEMÁTICA ES A ELECCIÓN, SE MUESTRAN LOS DISEÑOS ANTESDE LA IMPRESIÓN DEL MISMO"
+    },
+    {
+      "id": 3,
+      "nombre": "CENTRO DE MESA",
+      "nombre2": "SENCILLO",
+      "precio": "12.000",
+      "cantidad": "1 unidad",
+      "categoria": "El detalle que hace la diferencia en tu mesa",
+      "image": "./src/image/3.jpg",
+      "descripcion": "Centros de mesa que hablan por tu evento",
+      "detalles": " NO INCLUYE GOLOSINAS DENTRO, LA TEMÁTICA ES A ELECCIÓN, SE MUESTRAN LOS DISEÑOS ANTESDE LA IMPRESIÓN DEL MISMO"
+    },
+    {
+      "id": 4,
+      "nombre": "CENTRO DE MESA",
+      "nombre2": "SEMI PREMIUM",
+      "precio": "15.000",
+      "cantidad": "5 unidades",
+      "categoria": "CENTRO-DE-MESA",
+      "image": "./src/image/4.png",
+      "descripcion": "Decoraciones personalizadas y únicas",
+      "detalles": " NO INCLUYE GOLOSINAS DENTRO, LA TEMÁTICA ES A ELECCIÓN, SE MUESTRAN LOS DISEÑOS ANTESDE LA IMPRESIÓN DEL MISMO"
+    },
+      {
+      "id": 5,
+      "nombre": "CENTRO DE MESA",
+      "nombre2": " PREMIUM",
+      "precio": "18.500",
+      "cantidad": "1 unidades",
+      "categoria": "CENTRO-DE-MESA",
+      "image": "./src/image/5.png",
+      "descripcion": "Crea un ambiente mágico con nuestros centros de mesa",
+      "detalles": " NO INCLUYE GOLOSINAS DENTRO, LA TEMÁTICA ES A ELECCIÓN, SE MUESTRAN LOS DISEÑOS ANTESDE LA IMPRESIÓN DEL MISMO"
+    },
+      {
+      "id": 6,
+      "nombre": " DULCES PERSONALIZADOS",
+      "nombre2": " COMBO 1",
+      "precio": "170.000",
+      "cantidad": "30 UNIDADES",
+      "categoria": "PERSONALIZADOS-DULCES",
+      "image": "./src/image/6.jpg",
+      "descripcion": "Dulces únicos que conquistan con el diseño y el sabor",
+      "detalles": "SI DESEA CAMBIAR LA MARCA, CANTIDAD O TIPO DE GOLOSINAS DEL COMBO, TENDRÁ UNA VARIACIÓN EN EL COSTO  <br> • LOS DULCES VAN INCLUIDOS<br> • LOS PEDIDOS SE CONFIRMAN CON SEÑA PREVIA DEL 50%<br> • TOMAMOS PEDIDOS COMO MÍNIMO CON 5 DÍAS DE ANTICIPACIÓN<br> • LA TEMÁTICA ES A ELECCION DEL CLIENTE"
+    }
+    
+
+    ],
+    
+
+    "categories": [
+      "Papelería",
+      "Etiquetas y Stickers",
+      "Golosinas personalizadas",
+      "Souvenirs",
+      "Digitales",
+      "Archivos digitales"
+    ],
+   "comentario" :["<br> • "]
+  }

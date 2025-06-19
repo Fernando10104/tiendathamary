@@ -13,7 +13,7 @@ menu.classList.toggle('active');
 let resultadoFinal = [];
 let productos = [];
 let indiceInicio = 0;
-const cantidadPorCarga = 8;
+const cantidadPorCarga = 20;
 
 // Cargar los productos desde el archivo JSON
 function actulizarproductos() {

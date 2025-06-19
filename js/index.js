@@ -11,10 +11,12 @@ menu.classList.toggle('active');
 });
 
 // Cargar los productos desde el archivo JSON
-fetch("https://api.puntodigitalpy.online/productos")
+fetch("./src/productos_destacados.json")
     .then(response => response.json())
     .then(data => {
+        console.log(data)
         const productos = data.productos;
+        console.log(productos)
         cargarproductos(productos);
         const fuse = new Fuse(productos, opciones);
         const input = document.getElementById("search");
@@ -67,6 +69,7 @@ function cargarproductos(productos){
                 <h3 class="producto-nombre">${item.nombre}</h3>
                 <p>Tipo : ${item.nombre2}</p>
                 <p>Precio: ${precioFormateado} Gs.</p>
+                <p>${item.descripcion}</p>
                 
             </div>
         `;
@@ -74,9 +77,6 @@ function cargarproductos(productos){
             const searchInput = document.getElementById("search");
             searchInput.value = "";
             searchInput.blur();
-            cargarproductos(productos);
-            
-            window.location.href = `p_detallado.html?id=${item.id}`;
             
         };
         contenedorproductos.appendChild(div);

@@ -1,3 +1,29 @@
+/*estilos nuevos */
+
+.footer1{
+  background-color: #1f2937; /* bg-gray-800 */
+  color: #fff;               /* text-white */
+  padding-top: 3rem;         /* py-12 */
+  padding-bottom: 3rem;
+  padding-left: 2rem;        /* px-4 */
+  padding-right: 2rem;
+  transition: background 0.8s;
+  /* Transición suave de color de fondo */
+}
+.footer1 .div1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  text-align: left;
+}
+.footer-btn{
+  background: none;
+  font-size: 1.1rem;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+}
+
 /* Estilo para ₲ el contenedor de la página #f6d7d5  #fcb1b1  #f5cbc9  #4dc247 verde whatsapp*/
 
 
