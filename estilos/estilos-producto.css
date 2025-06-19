@@ -650,7 +650,7 @@ nav ul li a:hover {
   .nav.menu ul li:hover {
   transform: scale(1.02);
   transition: transform 0.3s ease;
-}
+  }
 
   nav.menu.active {
     display: flex;
@@ -663,5 +663,27 @@ nav ul li a:hover {
 
   nav.menu ul li a {
     font-size: 16px;
+  }
+    .footer1{
+    background-color: #1f2937; /* bg-gray-800 */
+    color: #fff;               /* text-white */
+    padding-top: 3rem;         /* py-12 */
+    padding-bottom: 3rem;
+    transition: background 0.8s;
+    /* Transición suave de color de fondo */
+  }
+  .footer1 .div1 {
+      grid-template-columns: 1fr;
+      text-align: left;
+      gap: 1rem;
+    }
+
+
+  .footer-btn{
+    background: none;
+    font-size: 1.05rem;
+    background-color: transparent;
+    color: #fff;
+    border: none;
   }
 }
