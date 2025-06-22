@@ -52,7 +52,7 @@ async function handleFormSubmit(e) {
   const cantidad = document.getElementById('cantidad').value;
   const categoria = document.getElementById('categoria').value;
   const Descripcion = descripcionFormateada;
-  const detalles = document.getElementById('detalles').value;
+  const detalles = document.getElementById('detalles').value.replace(/\n/g, "<br>");
 
   if (imageFile) {
     const formData = new FormData();
