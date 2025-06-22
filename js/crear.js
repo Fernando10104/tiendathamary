@@ -107,7 +107,7 @@ function getProductoFromForm() {
     categoria: document.getElementById('categoria').value,
     image: document.getElementById('image').value,
     descripcion: descripcionFormateada,
-    detalles: document.getElementById('detalles').value
+    detalles : document.getElementById('detalles').value.replace(/\n/g, "<br>"),
   };
 }
 
