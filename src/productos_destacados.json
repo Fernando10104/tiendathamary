@@ -71,13 +71,11 @@
     ],
     
 
-    "categories": [
-      "Papelería",
-      "Etiquetas y Stickers",
-      "Golosinas personalizadas",
-      "Souvenirs",
-      "Digitales",
-      "Archivos digitales"
+    "categorias": [
+      "PERSONALIZADOS-DULCES",
+      "CENTRO-DE-MESA",
+      "TASAS"
+
     ],
    "comentario" :["<br> • "]
   }

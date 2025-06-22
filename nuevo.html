@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Actualizar Productos</title>
+  <script src="./js/verificar_login.js" defer></script>
+  <script src="./js/logout.js" defer></script>
+  <link rel="stylesheet" href="./estilos/prueba.css">
+  
+
+  <style>
+        form {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .grid {
+      display: grid;
+      gap: 1rem;
+    }
+    .grid-cols-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .grid-cols-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #f9a8d4;
+      box-sizing: border-box;
+    }
+    textarea {
+      min-height: 100px;
+    }
+    .button-group {
+      display: flex;
+      gap: 10px;
+      padding-top: 20px;
+    }
+    .btn-primary {
+      background: linear-gradient(to right, #ec4899, #8b5cf6);
+      color: white;
+      border: none;
+    }
+    .btn-cancel {
+      background: #f3f4f6;
+      border: 1px solid #d1d5db;
+    }
+    img.preview {
+      width: 128px;
+      height: 128px;
+      object-fit: cover;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px 8px;
+      border-bottom: 1px solid #f5cbc9;
+      text-align: left;
+    }
+    th {
+      background: #f5cbc9;
+      color: #333;
+    }
+    tr.selected {
+      background-color: #ffe0e0;
+    }
+    #actualizar-btn {
+      margin-top: 20px;
+      background: #3498db;
+      color: #fff;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 5px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.3s;
+      display: none;
+    }
+    #actualizar-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+    #edit-form {
+      margin-top: 30px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: none;
+      max-width: 1200px;
+    }
+    #edit-form label {
+      display: block;
+      margin-top: 10px;
+    }
+    #edit-form input, #edit-form textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+                    <header>
+                    <button onclick="logout()">Cerrar sesión</button>
+                    <br>
+                    <br>
+
+                    <div class="header-div-2" >
+                    <br>
+                    <div class="header-div-2" >
+   
+                       <div class="div-menu-header">
+                            <!-- Botón hamburguesa -->
+                            <button id="menu-toggle" class="menu-toggle">
+                            ☰
+                            </button>
+                            <!-- Menú de navegación -->
+                            <nav id="menu" class="menu">
+                                <ul >
+                                    <li><a  class="btn-link" href="crear.html">crear</a></li>
+                                    <li><a  class="btn-link" href="actualizar.html">actualizar</a></li>
+                                    <li><a  class="btn-link" href="eliminar.html">eliminar</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        
+                        
+
+                    </div>
+                </header>
+
+  <div> 
+    <br> 
+    <br>
+  </div>
+
+  <h2 style="font-size:2.8rem ;">Actualizar Productos</h2>
+  <table id="productos-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Nombre 2</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Categoría</th>
+        <th>Imagen</th>
+        <th>Descripción</th>
+        <th>Detalles</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Productos se cargarán aquí -->
+    </tbody>
+  </table>
+
+  <form id="edit-form">
+    <h3>Editar producto</h3>
+    <input type="hidden" id="edit-id">
+    <label>Nombre: <input type="text" id="edit-nombre" required></label>
+    <label>Nombre 2: <input type="text" id="edit-nombre2"></label>
+    <label>Precio: <input type="text" id="edit-precio" required></label>
+    <label>Cantidad: <input type="text" id="edit-cantidad"></label>
+    <label>Categoría: <input type="text" id="edit-categoria"></label>
+    <label>Imagen (URL): <input type="text" id="edit-image"></label>
+    <label>Descripción: <textarea id="edit-descripcion" rows="2"></textarea></label>
+    <label>Detalles: <textarea id="edit-detalles" rows="10"></textarea></label>
+    <button type="submit" id="actualizar-btn">Actualizar producto</button>
+  </form>
+
+  <script>
+let productos = [];
+const tableBody = document.querySelector("#productos-table tbody");
+
+// Cargar productos
+fetch("https://api.puntodigitalpy.online/productos")
+  .then(res => res.json())
+  .then(data => {
+    productos = Array.isArray(data) ? data : data.productos;
+    renderTable();
+  });
+
+function renderTable() {
+  tableBody.innerHTML = "";
+  productos.forEach(producto => {
+    const tr = document.createElement("tr");
+    tr.dataset.id = producto.id;
+
+    // Celdas editables
+    tr.innerHTML = `
+      <td>${producto.id}</td>
+      <td class="editable" data-field="nombre">${producto.nombre}</td>
+      <td class="editable" data-field="nombre2">${producto.nombre2}</td>
+      <td class="editable" data-field="precio">${producto.precio}</td>
+      <td class="editable" data-field="cantidad">${producto.cantidad}</td>
+      <td class="editable" data-field="categoria">${producto.categoria}</td>
+      <td class="editable" data-field="image">${producto.image}</td>
+      <td class="editable" data-field="descripcion">${producto.descripcion.replace(/<br> •/g, " -")}</td>
+      <td class="editable" data-field="detalles" style="white-space:pre-line;">${producto.detalles}</td>
+      <td><button class="btn-actualizar" style="display:none;">Actualizar</button></td>
+    `;
+
+    // Hacer celdas editables al hacer doble clic
+    tr.querySelectorAll(".editable").forEach(td => {
+      td.ondblclick = function() {
+        if (td.querySelector("input, textarea")) return;
+        const oldValue = td.textContent;
+        const field = td.dataset.field;
+        let input;
+        if (field === "descripcion" || field === "detalles") {
+          input = document.createElement("textarea");
+          input.rows = 6;
+        } else {
+          input = document.createElement("input");
+          input.type = "text";
+        }
+        input.value = oldValue;
+        td.textContent = "";
+        td.appendChild(input);
+        input.focus();
+
+        input.onblur = function() {
+          td.textContent = input.value;
+          if (input.value !== oldValue) {
+            tr.querySelector(".btn-actualizar").style.display = "inline-block";
+            tr.classList.add("editando");
+          }
+        };
+        input.onkeydown = function(e) {
+          if (e.key === "Enter" && field !== "descripcion" && field !== "detalles") {
+            input.blur();
+          }
+        };
+      };
+    });
+
+    // Botón actualizar
+    tr.querySelector(".btn-actualizar").onclick = function() {
+      const id = producto.id;
+      const campos = tr.querySelectorAll(".editable");
+      const actualizado = {
+        nombre: campos[0].textContent,
+        nombre2: campos[1].textContent,
+        precio: campos[2].textContent,
+        cantidad: campos[3].textContent,
+        categoria: campos[4].textContent,
+        image: campos[5].textContent,
+        descripcion: campos[6].textContent.replace(/ *- */g, "<br> •"),
+        detalles: campos[7].textContent.replace(/\n/g, "<br>"),
+      };
+
+      fetch(`https://api.puntodigitalpy.online/productos/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(actualizado)
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.ok) {
+          productos = productos.map(p => p.id === id ? {id, ...actualizado} : p);
+          renderTable();
+          alert("Producto actualizado correctamente.");
+        } else {
+          alert("No se pudo actualizar el producto.");
+        }
+      });
+    };
+
+    tableBody.appendChild(tr);
+  });
+}
+  
+  // Referencias al modal y campos
+const modal = document.getElementById("modal-editar");
+const form = document.getElementById("productForm");
+const previewImg = document.getElementById("preview");
+
+// Mostrar modal al hacer clic en una fila
+tableBody.addEventListener("click", function(e) {
+  const tr = e.target.closest("tr");
+  if (!tr || !tr.dataset.id) return;
+  const id = Number(tr.dataset.id);
+  const producto = productos.find(p => p.id == id);
+  if (!producto) return;
+
+  // Rellenar campos
+  form.dataset.id = producto.id;
+  form.nombre.value = producto.nombre;
+  form.nombre2.value = producto.nombre2;
+  form.precio.value = producto.precio.replace(/\D/g, "");
+  form.cantidad.value = producto.cantidad.replace(/\D/g, "") || 1;
+  form.categoria.value = producto.categoria || "CENTRO-DE-MESA";
+  form.imagen.value = producto.image;
+  previewImg.src = producto.image;
+  form.descripcion.value = producto.descripcion.replace(/<br> •/g, "\n- ");
+  form.detalles.value = producto.detalles.replace(/<br>/g, "\n");
+
+  modal.style.display = "flex";
+});
+
+// Actualizar preview de imagen
+form.imagen.addEventListener("input", () => {
+  previewImg.src = form.imagen.value;
+});
+
+// Guardar cambios
+form.onsubmit = function(e) {
+  e.preventDefault();
+  const id = Number(form.dataset.id);
+  const actualizado = {
+    nombre: form.nombre.value,
+    nombre2: form.nombre2.value,
+    precio: form.precio.value,
+    cantidad: form.cantidad.value,
+    categoria: form.categoria.value,
+    image: form.imagen.value,
+    descripcion: form.descripcion.value.replace(/\n- */g, "<br> •"),
+    detalles: form.detalles.value.replace(/\n/g, "<br>")
+  };
+  fetch(`https://api.puntodigitalpy.online/productos/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(actualizado)
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.ok) {
+      productos = productos.map(p => p.id === id ? {id, ...actualizado} : p);
+      renderTable();
+      alert("Producto actualizado correctamente.");
+      modal.style.display = "none";
+    } else {
+      alert("No se pudo actualizar el producto.");
+    }
+  });
+};
+
+// Cancelar y cerrar modal
+document.getElementById("btn-cancelar-modal").onclick = function() {
+  modal.style.display = "none";
+};
+modal.onclick = function(e) {
+  if (e.target === modal) modal.style.display = "none";
+};
+  </script>
+
+    <!-- Modal de edición de producto -->
+  <div id="modal-editar" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.25); z-index:9999; align-items:center; justify-content:center;">
+    <form id="productForm" style="background:white; padding:20px; border-radius:10px; max-width:800px; margin:auto; box-shadow:0 8px 32px #0002;">
+      <div class="grid grid-cols-2">
+        <div>
+          <label for="nombre">Nombre Principal *</label>
+          <input type="text" id="nombre" required>
+        </div>
+        <div>
+          <label for="nombre2">Nombre Secundario</label>
+          <input type="text" id="nombre2">
+        </div>
+      </div>
+      <div class="grid grid-cols-3">
+        <div>
+          <label for="precio">Precio *</label>
+          <input type="number" id="precio" required>
+        </div>
+        <div>
+          <label for="cantidad">Cantidad</label>
+          <input type="number" id="cantidad" min="1">
+        </div>
+        <div>
+          <label for="categoria">Categoría *</label>
+          <select id="categoria">
+            <option value="CENTRO-DE-MESA">CENTRO DE MESA</option>
+            <option value="PERSONALIZADOS-DULCES">PERSONALIZADOS DULCES</option>
+            <option value="DECORACION">DECORACIÓN</option>
+            <option value="OTROS">OTROS</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label for="imagen">URL de Imagen</label>
+        <input type="url" id="imagen" placeholder="https://...">
+        <img id="preview" class="preview" src="" alt="Preview">
+      </div>
+      <div>
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion"></textarea>
+      </div>
+      <div>
+        <label for="detalles">Detalles Adicionales</label>
+        <textarea id="detalles"></textarea>
+      </div>
+      <div class="button-group">
+        <button type="submit" class="btn-primary">Guardar Cambios</button>
+        <button type="button" class="btn-cancel" id="btn-cancelar-modal">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
